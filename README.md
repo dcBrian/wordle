@@ -1,0 +1,25 @@
+## Wordle
+
+This is a Wordle clone.
+
+### Built With
+
+- [Sveltkit](https://kit.svelte.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+<br />
+
+<p align="center">
+    <br />
+      <a href="https://wordle-eight-plum.vercel.app/">View Demo</a>
+    <br />
+  </p>
+
+## About The Project
+
+<img src="/images/wordle1.png?raw=true" width="49.7%"/> <img src="/images/wordle2.png?raw=true" width="49.7%"/>
+
+
+## Contact
+
+dacruzbrian1@gmail.com
