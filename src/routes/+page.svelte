@@ -12,7 +12,7 @@
 
 	onMount(async () => (solution = pickRandomSolution(data.solutions)));
 
-	$: if ($turn > 5) $status = GAME_STATUS.LOOSE;
+	$: if ($turn > 5 && $status !== GAME_STATUS.WIN) $status = GAME_STATUS.LOOSE;
 
 	$: if ($status === GAME_STATUS.RELOADING) {
 		solution = pickRandomSolution(data.solutions);
@@ -34,7 +34,10 @@
 				throttleJiggleAnimation();
 				return;
 			}
-			guesses.updateWord($turn, formatGuess(solution, $current));
+			guesses.updateWord(
+				$turn,
+				formatGuess(solution, $current, () => ($status = GAME_STATUS.WIN))
+			);
 
 			position.next();
 		}

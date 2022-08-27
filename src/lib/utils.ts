@@ -29,7 +29,7 @@ export const pickRandomSolution = (list: any[]): any => {
 	return list[random].word.split('').map((e: string, i: number) => ({ id: `${i}`, key: e, color: COLOR_GREEN }));
 };
 
-export const formatGuess = (solution: Box[], input: Box[]) => {
+export const formatGuess = (solution: Box[], input: Box[], callback: () => void) => {
 	let counter = 0;
 	let sol = solution.map((value) => ({ ...value }));
 
@@ -44,6 +44,7 @@ export const formatGuess = (solution: Box[], input: Box[]) => {
 	});
 	if (counter === 5) {
 		openDelayedModal(true, solution, 580);
+		callback();
 	} else {
 		formatted.forEach((e) => {
 			const index = sol.findIndex((s, i) => s.key === e.key);

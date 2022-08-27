@@ -1,6 +1,6 @@
 ## Wordle
 
-This is a Wordle clone.
+This is a Wordle clone.If you feel it can help you with something, feel free to use partly or totally this code.
 
 ### Built With
 
