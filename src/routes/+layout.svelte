@@ -23,7 +23,7 @@
 <SvelteToast {options} />
 <Header />
 
-<main class="select-none">
+<main class="select-none  h-[calc(100vh-3rem)]">
 	<slot />
 </main>
 

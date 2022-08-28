@@ -3,9 +3,9 @@ import type { Box } from '$lib/types';
 import { openModal } from 'svelte-modals';
 import { cubicInOut } from 'svelte/easing';
 
-const COLOR_GREEN = 'bg-green-400 border-green-400';
-const COLOR_YELLOW = 'bg-yellow-400 border-yellow-400';
-const COLOR_GRAY = 'bg-gray-500 border-gray-500';
+export const COLOR_GREEN = 'bg-green-400 border-green-400';
+export const COLOR_YELLOW = 'bg-yellow-400 border-yellow-400';
+export const COLOR_GRAY = 'bg-gray-500 border-gray-500';
 
 export const _array = <U>(length: number, callbackfn: <T>(index: number) => U): U[] => {
 	let res = new Array(length);
@@ -26,7 +26,7 @@ export const openDelayedModal = (correct: boolean, solution: Box[], delay?: numb
 export const pickRandomSolution = (list: any[]): any => {
 	const random = Math.floor(Math.random() * list.length);
 
-	return list[random].word.split('').map((e: string, i: number) => ({ id: `${i}`, key: e, color: COLOR_GREEN }));
+	return list[random];
 };
 
 export const formatGuess = (solution: Box[], input: Box[], callback: () => void) => {

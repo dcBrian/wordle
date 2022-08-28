@@ -17,7 +17,11 @@ This is a Wordle clone.If you feel it can help you with something, feel free to 
 
 ## About The Project
 
-<img src="/images/wordle1.png?raw=true" width="49.7%"/> <img src="/images/wordle2.png?raw=true" width="49.7%"/>
+<p align="center">
+  <img src="/images/wordle1.png?raw=true" width="40%"/> 
+  <img src="/images/wordle2.png?raw=true" width="40%"/>
+</p>
+
 
 
 ## Contact

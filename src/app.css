@@ -11,7 +11,7 @@
 
 @layer components {
 	.box {
-		@apply flex w-10 h-10 sm:w-14 sm:h-14 2xl:w-20 2xl:h-20 border-2 border-gray-300 m-1 justify-center items-center duration-300 ease-in bg-transparent transition-colors;
+		@apply flex w-12 h-12 sm:w-14 sm:h-14 2xl:w-20 2xl:h-20 border-2 border-gray-300  justify-center items-center duration-300 ease-in bg-transparent transition-colors;
 	}
 	.filled {
 		@apply border-black;

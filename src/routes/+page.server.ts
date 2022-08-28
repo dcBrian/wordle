@@ -1,11 +1,12 @@
 import type { PageServerLoad } from '.svelte-kit/types/src/routes/todos/$types';
 import { api } from './../api';
 
-type Letter = { key: string };
 type Solution = { id: number; word: string };
 export const load: PageServerLoad = async () => {
-	return {
-		solutions: (await api('GET', import.meta.env.VITE_PUBLIC_BASE_PATH + 'solutions')) as Solution[],
-		letters: (await api('GET', import.meta.env.VITE_PUBLIC_BASE_PATH + 'letters')) as Letter[]
-	};
+	const raw = (await api('GET', import.meta.env.VITE_PUBLIC_BASE_PATH + 'solutions')) as Solution[];
+
+	const solutions = raw.map((e) =>
+		e.word.split('').map((e: string, i: number) => ({ id: `${i}`, key: e, color: 'bg-green-400 border-green-400' }))
+	);
+	return { solutions: solutions };
 };

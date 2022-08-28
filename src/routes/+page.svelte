@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { current, guesses, jiggle, position, status, turn, word } from '$lib/../store';
+	import Keyboard from '$lib/Keyboard.svelte';
 	import Row from '$lib/Row.svelte';
 	import { GAME_STATUS, type Box } from '$lib/types';
 	import { formatGuess, openDelayedModal, pickRandomSolution, _delay } from '$lib/utils';
@@ -63,11 +64,12 @@
 <svelte:window on:keyup={handleKeyUp} />
 
 {#if $status === GAME_STATUS.INITIALIZED || $status === GAME_STATUS.WIN || $status === GAME_STATUS.LOOSE}
-	<section>
-		<section class="flex flex-col items-center">
+	<section class="flex flex-col h-full justify-between pt-4 pb-6">
+		<section class="flex flex-col items-center ">
 			{#each $guesses as row, i (i)}
 				<Row isActive={$turn === i && $jiggle} {row} />
 			{/each}
 		</section>
+		<Keyboard {handleKeyUp} />
 	</section>
 {/if}

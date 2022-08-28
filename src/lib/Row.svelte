@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class={`flex space-x-1 my-1 min-h-10 ${isActive ? 'animate-shake' : ''}`}
+	class={`flex space-x-2 my-1 min-h-10 ${isActive ? 'animate-shake' : ''}`}
 	on:animationend={() => ($jiggle = false)}
 >
 	{#each row as e}
