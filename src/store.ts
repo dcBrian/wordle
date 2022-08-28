@@ -45,9 +45,14 @@ function createJiggle() {
 	const { subscribe, set } = writable<boolean>(false);
 	return { subscribe, set };
 }
+function createUsed() {
+	const { subscribe, update } = writable<any>({});
+	return { subscribe, update };
+}
 
 export const status = createGameStatus();
 export const jiggle = createJiggle();
+export const used = createUsed();
 export const guesses = createGuesses();
 export const position = createPosition();
 export const turn = derived(position, (d) => d.turn);

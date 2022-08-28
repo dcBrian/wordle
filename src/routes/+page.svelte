@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { current, guesses, jiggle, position, status, turn, word } from '$lib/../store';
+	import { current, guesses, jiggle, position, status, turn, used, word } from '$lib/../store';
 	import Keyboard from '$lib/Keyboard.svelte';
 	import Row from '$lib/Row.svelte';
 	import { GAME_STATUS, type Box } from '$lib/types';
@@ -37,7 +37,7 @@
 			}
 			guesses.updateWord(
 				$turn,
-				formatGuess(solution, $current, () => ($status = GAME_STATUS.WIN))
+				formatGuess(solution, $current, used.update, () => ($status = GAME_STATUS.WIN))
 			);
 
 			position.next();
@@ -65,7 +65,7 @@
 
 {#if $status === GAME_STATUS.INITIALIZED || $status === GAME_STATUS.WIN || $status === GAME_STATUS.LOOSE}
 	<section class="flex flex-col h-full justify-between pt-4 pb-6">
-		<section class="flex flex-col items-center ">
+		<section class="flex flex-col items-center">
 			{#each $guesses as row, i (i)}
 				<Row isActive={$turn === i && $jiggle} {row} />
 			{/each}

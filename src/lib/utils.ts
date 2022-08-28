@@ -2,6 +2,7 @@ import ModalSvelte from '$lib/Modal.svelte';
 import type { Box } from '$lib/types';
 import { openModal } from 'svelte-modals';
 import { cubicInOut } from 'svelte/easing';
+import type { Updater } from 'svelte/store';
 
 export const COLOR_GREEN = 'bg-green-400 border-green-400';
 export const COLOR_YELLOW = 'bg-yellow-400 border-yellow-400';
@@ -29,11 +30,16 @@ export const pickRandomSolution = (list: any[]): any => {
 	return list[random];
 };
 
-export const formatGuess = (solution: Box[], input: Box[], callback: () => void) => {
+export const formatGuess = (
+	solution: Box[],
+	input: Box[],
+	update: (this: void, updater: Updater<{}>) => void,
+	callback: () => void
+) => {
 	let counter = 0;
 	let sol = solution.map((value) => ({ ...value }));
 
-	let formatted = input.map((e, i) => {
+	let formatted: Box[] = input.map((e, i) => {
 		if (sol[i].key === e.key) {
 			sol[i].key = null;
 			counter++;
@@ -54,6 +60,23 @@ export const formatGuess = (solution: Box[], input: Box[], callback: () => void)
 			}
 		});
 	}
+	update((prev: {}) => {
+		let newKeys = { ...prev } as any;
+		formatted.forEach((e) => {
+			const element = e?.key ? newKeys[e.key] : null;
+			if (!element && e.key) {
+				newKeys[e.key] = e.color;
+			} else if (e.color === COLOR_GREEN && e.key) {
+				newKeys[e.key] = COLOR_GREEN;
+			} else if (e.color === COLOR_YELLOW && element.color !== COLOR_GREEN && e.key) {
+				newKeys[e.key] = COLOR_YELLOW;
+			} else if (e.key) {
+				newKeys[e.key] = COLOR_GRAY;
+			}
+		});
+		return newKeys;
+	});
+
 	return formatted as Box[];
 };
 
