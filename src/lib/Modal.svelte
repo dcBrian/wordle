@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { guesses, position, status } from '$lib/../store';
+	import { guesses, position, status, used } from '$lib/../store';
 	import { closeModal } from 'svelte-modals';
 	import { fade } from 'svelte/transition';
 	import Row from './Row.svelte';
@@ -30,6 +30,7 @@
 				<button
 					class="capitalize text-lg border-2 p-3 rounded-sm cursor-pointer"
 					on:click={() => {
+						used.update((e) => ({}));
 						position.reset();
 						guesses.reset();
 						$status = GAME_STATUS.RELOADING;

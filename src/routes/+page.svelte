@@ -64,7 +64,7 @@
 <svelte:window on:keyup={handleKeyUp} />
 
 {#if $status === GAME_STATUS.INITIALIZED || $status === GAME_STATUS.WIN || $status === GAME_STATUS.LOOSE}
-	<section class="flex flex-col h-full justify-between pt-4 pb-6">
+	<section class="flex flex-col h-full justify-between pt-4 pb-6 ">
 		<section class="flex flex-col items-center">
 			{#each $guesses as row, i (i)}
 				<Row isActive={$turn === i && $jiggle} {row} />

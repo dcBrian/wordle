@@ -54,7 +54,7 @@ export const formatGuess = (
 	} else {
 		formatted.forEach((e) => {
 			const index = sol.findIndex((s, i) => s.key === e.key);
-			if (index > 0 && e.color !== COLOR_GREEN) {
+			if (index > -1 && e.color === COLOR_GRAY) {
 				e.color = COLOR_YELLOW;
 				sol[index].key = null;
 			}
@@ -63,14 +63,16 @@ export const formatGuess = (
 	update((prev: {}) => {
 		let newKeys = { ...prev } as any;
 		formatted.forEach((e) => {
-			const element = e?.key ? newKeys[e.key] : null;
-			if (!element && e.key) {
+			if (!e?.key) return;
+
+			const color = newKeys[e.key];
+			if (!color) {
 				newKeys[e.key] = e.color;
-			} else if (e.color === COLOR_GREEN && e.key) {
+			} else if (e.color === COLOR_GREEN) {
 				newKeys[e.key] = COLOR_GREEN;
-			} else if (e.color === COLOR_YELLOW && element.color !== COLOR_GREEN && e.key) {
+			} else if (e.color === COLOR_YELLOW && color !== COLOR_GREEN) {
 				newKeys[e.key] = COLOR_YELLOW;
-			} else if (e.key) {
+			} else if (color !== COLOR_GREEN && color !== COLOR_YELLOW) {
 				newKeys[e.key] = COLOR_GRAY;
 			}
 		});
