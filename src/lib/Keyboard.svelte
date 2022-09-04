@@ -1,11 +1,11 @@
 <script lang="ts">
-	export let handleKeyUp: ({ key: input }: { key: string }) => void;
+	export let handleKeyUp: ({ key }: { key: string }) => void;
 	const qwerty: string[] = ['q w e r t y u i o p', 'a s d f g h j k l', 'Enter z x c v b n m Del'];
 	import { used } from '$lib/../store';
-	import { fly } from './utils';
+	import { fade } from 'svelte/transition';
 </script>
 
-<div in:fly={{ duration: 400, delay: 0 }}>
+<div in:fade={{ duration: 400, delay: 0 }}>
 	{#each qwerty as row}
 		<div class="flex justify-center space-x-1 my-2">
 			{#each row.split(' ') as letter}
