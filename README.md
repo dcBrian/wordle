@@ -62,6 +62,18 @@ $ npm install
 $ npm run dev
 ```
 
+## Configuration
+If you want to use your own list of words, you can change the API endpoint by setting the environment variable `VITE_PUBLIC_API_PATH`.<br>
+By default, it points to `https://api-pearl-eight.vercel.app/api/solutions` defined in this [repository](https://github.com/dcBrian/api).<br>
+The expected data is:
+```
+[
+    { id: 1, word: 'ninja' },
+    { id: 2, word: 'spade' },
+    ...
+]
+```
+
 ## Credits
 
 This software uses the following packages and services:
