@@ -31,8 +31,6 @@
 
 ## Key Features
 
-* Responsive layout (mobile, tablet, pc)
-* Server side Rendering
 * Game
   - [x] Random solution for every game
   - [x] Letter count / position algorithm
