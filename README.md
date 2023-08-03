@@ -4,8 +4,7 @@
   <br>
 </h1>
 
-<h4 align="center">This is a Wordle clone made with <a href="https://kit.svelte.dev/" target="_blank">Sveltekit</a>.<br>The purpose of this project is to showcase my knowledge.
-</h4>
+<h4 align="center">This is a Wordle clone made with <a href="https://kit.svelte.dev/" target="_blank">Sveltekit</a>.</h4>
 
 <p align="center">
     <a href="https://github.com/dcBrian/wordle/commits/main">
