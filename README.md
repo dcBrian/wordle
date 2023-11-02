@@ -16,7 +16,6 @@
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a> •
-  <a href="#you-may-also-like">Related</a> •
   <a href="#contact">Contact</a>
 </p>
 
@@ -73,16 +72,11 @@ The expected data is:
 
 ## Credits
 
-This software uses the following packages and services:
+This project uses the following packages and services:
 
 - [Sveltkit](https://kit.svelte.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Vercel](https://vercel.com/)
-
-## You may also like...
-
-- [A Reddit clone](https://github.com/dcBrian/Reddit)
-- [An Airbnb clone](https://github.com/dcBrian/Airbnb)
 
 ## Contact
 
