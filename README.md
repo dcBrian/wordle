@@ -15,8 +15,7 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#contact">Contact</a>
+  <a href="#credits">Credits</a>
 </p>
 
 <p align="center">
@@ -77,7 +76,3 @@ This project uses the following packages and services:
 - [Sveltkit](https://kit.svelte.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Vercel](https://vercel.com/)
-
-## Contact
-
-dacruzbrian1@gmail.com
